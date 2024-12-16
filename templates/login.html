@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизація</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: white;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #367c39;
+            transform: scale(1.05);
+        }
+
+        p {
+            color: red;
+            font-size: 0.9rem;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #4CAF50;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin: 10px 0;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #367c39;
+            transform: scale(1.05);
+            color: #ffffff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Авторизація</h1>
+        <form action="/login" method="post">
+            <label for="username">Логін:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Увійти</button>
+        </form>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+        <a href="/register">Немає акаунту? Зареєструватися</a>
+        <a href="/">Назад</a>
+    </div>
+</body>
+</html>

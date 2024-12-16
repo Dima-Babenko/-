@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: white;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin: 10px 0;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #367c39;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Dashboard</h1>
+        <a href="/dashboard/departments">Управління Відділами</a><br>
+        <a href="/dashboard/departments/view">Переглянути Відділи</a><br>
+        <a href="/dashboard/products">Управління продуктами</a><br>
+        <a href="/dashboard/products/view">Переглянути продукти</a><br>
+        <a href="/">На головну сторінку</a>
+    </div>
+</body>
+</html>

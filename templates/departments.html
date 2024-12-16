@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відділи</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: white;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 450px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        button:hover {
+            background-color: #367c39;
+            transform: scale(1.05);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul li button {
+            background-color: #f44336;
+            margin-left: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 1rem;
+            margin-top: 20px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #367c39;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Відділи</h1>
+        <form method="POST">
+            <input name="name" placeholder="Назва відділу" required>
+            <textarea name="description" placeholder="Опис" required></textarea>
+            <button type="submit">Додати</button>
+        </form>
+        <ul>
+            {% for department in departments %}
+            <li>
+                <span>{{ department.name }}: {{ department.description }}</span>
+                <form action="/dashboard/departments/delete/{{ department.id }}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Ви дійсно хочете видалити цей Відділ?');">Видалити</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/dashboard">Назад</a>
+    </div>
+</body>
+</html>

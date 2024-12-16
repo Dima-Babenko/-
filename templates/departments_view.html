@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переглянути Відділи</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: white;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .back-link:hover {
+            background-color: #367c39;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Переглянути Відділ</h1>
+        <ul>
+            {% for department in departments %}
+                <li>
+                    <strong>{{ department.name }}</strong>
+                    <br>{{ department.description }}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/dashboard" class="back-link">Назад до панелі керування</a>
+    </div>
+</body>
+</html>
